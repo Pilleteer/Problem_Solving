@@ -7,6 +7,8 @@
         "vector": "cpp",
         "utility": "cpp",
         "stdio.h": "c",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iosfwd": "cpp",
+        "ios": "cpp"
     }
 }

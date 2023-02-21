@@ -1,17 +1,20 @@
+
 #include<iostream>
 #include<string>
 #include<list>
 #include<vector>
+#include<utility>
+#include<algorithm>
 using namespace std;
 
-const int MAXN = 100010;    
+const int MAXN = 200010;    
 int n,m;
 int edges[MAXN][2];
 int weight[MAXN];
 pair<int,int> sorted_edges[MAXN];
 int parent[MAXN];
 
-void read_input(){
+void read_input(){   
     cin >> n >> m;
     for(int i=0;i<m;i++){
         int a,b;
@@ -23,16 +26,13 @@ void read_input(){
     }
 }
 
-void sort_edges(){
-    for(int i=0;i<m;i++){
-        for(int j=i+1;j<m;j++){
-            if(sorted_edges[i].first>sorted_edges[j].first){
-                swap(sorted_edges[i],sorted_edges[j]);
-            }
-        }
-    }
+bool compare_pairs(const pair<int, int>& a, const pair<int, int>& b) {
+  return a.first < b.first;
 }
 
+void sort_edges() {
+  sort(sorted_edges, sorted_edges + m, compare_pairs);
+}
 int find(int x){
     if(parent[x]==x){
         return x;
@@ -55,6 +55,8 @@ void init(){
 }
 
 int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     read_input();
     sort_edges();
     init();
