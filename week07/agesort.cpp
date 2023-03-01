@@ -1,4 +1,3 @@
-
 #include<iostream>
 #include<string>
 #include<list>
@@ -8,10 +7,10 @@
 using namespace std;
 
 int MAXN = 200010;
-int data[MAXN];
+int info[200010];
 void init(int n){
     for(int i=0;i<n;i++){
-        data[i]=0;
+        info[i]=0;
     }
 }
 int main(){
